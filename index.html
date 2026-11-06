@@ -35,6 +35,7 @@ input:focus-visible{outline:2px solid var(--v);outline-offset:1px}
 <div class="form">
 <label for="f-name">Nombre completo<input id="f-name" placeholder="María Pérez Rojas"></label>
 <label for="f-role">Cargo<input id="f-role" placeholder="Coordinadora de especialidad · Clínica"></label>
+<label for="f-ges">Gestión<input id="f-ges" value="2026" placeholder="2026"></label>
 <label for="f-mail">Correo<input id="f-mail" type="email" placeholder="tucorreo@gmail.com"></label>
 <label for="f-tel">Celular (opcional)<input id="f-tel" placeholder="+51 999 999 999"></label>
 </div>
@@ -44,7 +45,7 @@ input:focus-visible{outline:2px solid var(--v);outline-offset:1px}
 <td style="width:5px;background:#B995DF;font-size:0;line-height:0">&nbsp;</td>
 <td style="padding:4px 0 4px 22px;vertical-align:middle">
 <div style="font-size:21px;font-weight:bold;color:#4C2778;line-height:1.3"><span id="o-name">Tu nombre completo</span></div>
-<div style="font-size:16px;font-style:italic;color:#7543A9;line-height:1.45"><span id="o-role">Tu cargo</span> SOCIEP UPC Gestión 2026</div>
+<div style="font-size:16px;font-style:italic;color:#7543A9;line-height:1.45"><span id="o-role">Tu cargo</span> SOCIEP UPC Gestión <span id="o-ges">2026</span></div>
 <div style="font-size:13.5px;color:#5A5468;line-height:1.6">Sociedad Estudiantil de Psicología UPC</div>
 <div style="font-size:15px;line-height:1.5"><a id="o-mail" href="mailto:" style="color:#7543A9;text-decoration:underline">tucorreo@ejemplo.com</a></div>
 <div id="o-telrow" style="font-size:15px;line-height:1.5"><a id="o-tel" href="tel:[+51 celular]" style="color:#7543A9;text-decoration:underline">[+51 celular]</a></div>
@@ -58,10 +59,10 @@ input:focus-visible{outline:2px solid var(--v);outline-offset:1px}
 </main><script>
 const $=id=>document.getElementById(id);
 function upd(){const n=$('f-name').value.trim(),r=$('f-role').value.trim(),m=$('f-mail').value.trim(),t=$('f-tel').value.trim();
-$('o-name').textContent=n||'Tu nombre completo';$('o-role').textContent=r||'Tu cargo';
+$('o-name').textContent=n||'Tu nombre completo';$('o-role').textContent=r||'Tu cargo';$('o-ges').textContent=$('f-ges').value.trim()||'2026';
 $('o-mail').textContent=m||'tucorreo@ejemplo.com';$('o-mail').href='mailto:'+m;$('o-mailicon').href='mailto:'+m;
 $('o-telrow').hidden=!t;$('o-tel').textContent=t;$('o-tel').href='tel:'+t.replace(/\s/g,'');}
-['f-name','f-role','f-mail','f-tel'].forEach(i=>$(i).addEventListener('input',upd));upd();
+['f-name','f-role','f-ges','f-mail','f-tel'].forEach(i=>$(i).addEventListener('input',upd));upd();
 </script>
 <script>
 document.querySelectorAll('button[data-t]').forEach(b=>b.addEventListener('click',async()=>{
